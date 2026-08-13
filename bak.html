@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aktienmarkt-Informationen – Informationsportal</title>
+    <meta name="description" content="Aktuelle Marktdaten, Übersichten und Informationen rund um den Aktienmarkt. Kostenfrei und datenschutzkonform." />
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'deep-blue': '#0a1e2f',
+                        'deep-blue-light': '#12334d',
+                        'ocean': '#1a4a6b',
+                        'gold': '#fbbf24',
+                        'gold-dark': '#f59e0b',
+                        'gold-light': '#fcd34d',
+                    }
+                }
+            }
+        }
+
+        function k2() {
+            window.location.href = "https://lihi1.me/7leqR";
+        }
+
+        function openModal(type) {
+            const modal = document.getElementById('legalModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            if (type === 'impressum') {
+                title.textContent = 'Impressum';
+                body.innerHTML = `
+                        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+                        <p class="mt-2 text-sm leading-relaxed text-gray-300">
+                            Diese Website ist ein privates Informationsangebot zum Thema Aktienmarkt.
+                            Sie wird betrieben von einer natürlichen Person.
+                        </p>
+                        <p class="mt-3 text-sm leading-relaxed text-gray-300">
+                            <strong>Zweck der Website:</strong><br />
+                            Bereitstellung von allgemeinen Informationen und Übersichten zum Aktienmarkt.
+                            Die Inhalte dienen ausschließlich der Information und Bildung.
+                        </p>
+                        <p class="mt-3 text-sm leading-relaxed bg-white/5 p-3 rounded border-l-4 border-gold text-gray-200">
+                            <strong>Wichtiger Hinweis:</strong><br />
+                            Alle Inhalte stellen <strong>keine Anlageberatung</strong> dar und ersetzen
+                            keine professionelle finanzielle Beratung. Investitionen sind mit Risiken verbunden.
+                            Historische Entwicklungen sind kein Indikator für zukünftige Ergebnisse.
+                        </p>
+                        <p class="mt-3 text-xs text-gray-500">
+                            * Diese Angaben entsprechen den gesetzlichen Vorgaben. Für weitergehende Fragen
+                            nutzen Sie bitte die auf dieser Website bereitgestellten Informationswege.
+                        </p>
+                    `;
+            } else if (type === 'datenschutz') {
+                title.textContent = 'Datenschutzerklärung';
+                body.innerHTML = `
+                        <p><strong>Datenschutz auf einen Blick</strong></p>
+                        <p class="mt-2 text-sm leading-relaxed text-gray-300">
+                            Der Schutz Ihrer persönlichen Daten ist uns wichtig. Nachfolgend informieren wir
+                            Sie über die Erhebung und Verwendung Ihrer Daten beim Besuch dieser Website.
+                        </p>
+                        <p class="mt-3 text-sm leading-relaxed text-gray-300">
+                            <strong>Erhebung und Speicherung von Daten:</strong><br />
+                            Beim Aufruf dieser Website werden lediglich technisch erforderliche Daten
+                            (z. B. IP-Adresse, Browsertyp, Zugriffszeit) automatisch erfasst.
+                            Diese Daten werden nicht für Marketingzwecke genutzt und nicht an Dritte weitergegeben.
+                        </p>
+                        <p class="mt-3 text-sm leading-relaxed text-gray-300">
+                            <strong>Verwendung von Cookies:</strong><br />
+                            Diese Website verwendet keine Tracking-Cookies oder Analyse-Tools.
+                            Es werden ausschließlich technisch notwendige Session-Cookies eingesetzt.
+                        </p>
+                        <p class="mt-3 text-sm leading-relaxed bg-white/5 p-3 rounded border-l-4 border-gold text-gray-200">
+                            <strong>Ihre Rechte:</strong><br />
+                            Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer
+                            gespeicherten Daten. Kontaktieren Sie uns hierzu über die auf dieser Website
+                            angegebenen Kontaktmöglichkeiten.
+                        </p>
+                        <p class="mt-3 text-xs text-gray-500">
+                            * Diese Erklärung entspricht den Anforderungen der DSGVO. Bei Fragen wenden Sie
+                            sich bitte an den Betreiber dieser Website.
+                        </p>
+                    `;
+            }
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('legalModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('legalModal');
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+
+            if (window.innerWidth < 768) {
+                const container = document.querySelector('.page-container');
+                if (container) {
+                    container.style.paddingBottom = '90px';
+                }
+            }
+
+            // Global click triggers k2 (excluding modal and menu)
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('#legalModal')) return;
+                if (e.target.closest('header button')) return;
+                if (e.target.closest('.no-trigger')) return;
+                k2();
+            });
+        });
+    </script>
+    <style>
+        /* Deep-sea blue background */
+        body {
+            background: #060f18;
+            font-family: 'Inter', sans-serif;
+        }
+        .page-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #0a1e2f 0%, #0f2a40 100%);
+            box-shadow: 0 0 60px rgba(0, 20, 40, 0.8);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+        /* Golden glow */
+        .page-container::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .page-container::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .page-container>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glassmorphism cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Golden button – flex layout, no squeezing */
+        .gold-btn {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #0a1e2f;
+            font-weight: 700;
+            box-shadow: 0 4px 24px rgba(251, 191, 36, 0.25);
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 24px;
+            border-radius: 50px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+        .gold-btn:hover {
+            box-shadow: 0 8px 40px rgba(251, 191, 36, 0.4);
+            transform: scale(1.02);
+        }
+        .gold-btn:active {
+            transform: scale(0.97);
+        }
+        .gold-btn i {
+            font-size: 1.4rem;
+        }
+        .gold-btn .chevron {
+            background: rgba(10, 30, 47, 0.15);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #0a1e2f;
+            flex-shrink: 0;
+        }
+
+        /* Step circles */
+        .step-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.12);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: #fbbf24;
+            flex-shrink: 0;
+        }
+
+        .badge-gold {
+            background: rgba(251, 191, 36, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+        }
+
+        /* Floating button (mobile) */
+        .float-btn {
+            animation: floatUp 0.4s ease-out;
+        }
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 1rem;
+        }
+        .modal-box {
+            max-width: 460px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #0d2840;
+            border: 1px solid rgba(251, 191, 36, 0.1);
+            border-radius: 24px;
+            padding: 2rem 1.5rem 1.5rem;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.92) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            font-size: 2rem;
+            color: #6b7280;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.2s;
+        }
+        .modal-close-btn:hover {
+            color: #fbbf24;
+        }
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            padding-right: 2rem;
+        }
+        .modal-body p {
+            color: #d1d5db;
+        }
+        .modal-body strong {
+            color: #fbbf24;
+        }
+        .modal-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-box::-webkit-scrollbar-track {
+            background: #0a1e2f;
+            border-radius: 10px;
+        }
+        .modal-box::-webkit-scrollbar-thumb {
+            background: #fbbf24;
+            border-radius: 10px;
+        }
+
+        /* Global click areas */
+        .page-container,
+        .page-container *:not(button):not(a):not(.modal-box *):not(.no-trigger) {
+            cursor: pointer;
+        }
+        .modal-box,
+        .modal-box * {
+            cursor: default;
+        }
+        header button {
+            cursor: default;
+        }
+        .no-trigger {
+            cursor: default;
+        }
+
+        /* Footer links */
+        .footer-link {
+            cursor: pointer;
+            transition: color 0.2s;
+            color: #9ca3af;
+        }
+        .footer-link:hover {
+            color: #fbbf24 !important;
+        }
+
+        @media (max-width: 767px) {
+            .page-container {
+                padding-bottom: 90px;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a1e2f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fbbf24;
+            border-radius: 10px;
+        }
+
+        .img-glow {
+            border: 1px solid rgba(251, 191, 36, 0.08);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.03);
+        }
+        .list-icon {
+            color: #fbbf24;
+        }
+        .text-gold {
+            color: #fbbf24;
+        }
+        .text-gold-light {
+            color: #fcd34d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+
+        <!-- HEADER -->
+        <header class="flex justify-between items-center px-5 py-4 border-b border-white/5 relative z-20">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-deep-blue text-sm shadow-lg shadow-gold/20">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <span class="font-bold text-sm text-white/90 tracking-tight">Aktienmarkt-Center</span>
+            </div>
+            <button class="text-xl text-white/50 hover:text-white/80 transition no-trigger" aria-label="Menü">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </header>
+
+        <!-- HERO -->
+        <section class="px-5 pt-7 pb-2 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs font-semibold text-gold mb-5 backdrop-blur-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+                Informationsangebot
+                <span class="text-white/30 mx-1">·</span>
+                Aktienmarkt-Übersicht
+            </div>
+
+            <h2 class="text-gold-light font-bold text-xs uppercase tracking-[0.2em] mb-1.5 opacity-80">Informiert bleiben über Marktentwicklungen</h2>
+            <h1 class="text-3xl md:text-4xl font-black leading-tight mb-5 text-white">
+                Aktienmarkt-<br />
+                <span class="text-gold">Informationen</span>
+            </h1>
+
+            <!-- List -->
+            <ul class="space-y-3 mb-7">
+                <li class="flex items-center gap-3 text-sm font-semibold text-white/80">
+                    <i class="fa-regular fa-circle-check text-gold text-lg list-icon"></i>
+                    Marktdaten &amp; Entwicklungen
+                </li>
+                <li class="flex items-center gap-3 text-sm font-semibold text-white/80">
+                    <i class="fa-regular fa-circle-check text-gold text-lg list-icon"></i>
+                    Informative Marktübersichten
+                </li>
+                <li class="flex items-center gap-3 text-sm font-semibold text-white/80">
+                    <i class="fa-regular fa-circle-check text-gold text-lg list-icon"></i>
+                    Zugang zu Informationen – unverbindlich
+                </li>
+            </ul>
+
+            <!-- Image + Stat -->
+            <div class="relative w-full rounded-2xl overflow-hidden mb-7 img-glow glass-card">
+                <img src="img/1.jpg" class="w-full h-auto block" alt="Aktienmarkt Übersicht" />
+                <div class="absolute bottom-3 right-3 bg-deep-blue/70 backdrop-blur-sm rounded-2xl px-4 py-3 border border-gold/20 flex flex-col items-center rotate-3">
+                    <span class="text-[9px] font-bold text-gold/80 uppercase tracking-wider">Informationen</span>
+                    <span class="text-2xl font-black text-white leading-none my-0.5">20.000<span class="text-sm text-gold">+</span></span>
+                    <span class="text-[9px] font-bold text-white/50">abgerufen</span>
+                </div>
+            </div>
+
+            <!-- CTA Button (no squeeze) -->
+            <div class="text-center">
+                <p class="text-gold font-bold text-sm mb-3 tracking-wider">＼ Zugang zu Informationen ／</p>
+                <a onclick="k2()" class="gold-btn no-select">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Jetzt der Community beitreten</span>
+                    <span class="chevron"><i class="fa-solid fa-chevron-right"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3 Features -->
+        <section class="grid grid-cols-3 gap-2 px-5 py-7 border-t border-white/5">
+            <div class="glass-card-light rounded-xl p-3.5 text-center">
+                <i class="fa-solid fa-euro-sign text-2xl text-gold mb-2 block"></i>
+                <p class="font-bold text-xs text-white">Kostenfrei</p>
+                <p class="text-[9px] text-white/40 mt-1 leading-tight">Transparent &amp; offen</p>
+            </div>
+            <div class="glass-card-light rounded-xl p-3.5 text-center">
+                <i class="fa-solid fa-clock text-2xl text-gold mb-2 block"></i>
+                <p class="font-bold text-xs text-white">Regelmäßig aktualisiert</p>
+                <p class="text-[9px] text-white/40 mt-1 leading-tight">Aktuelle Übersichten</p>
+            </div>
+            <div class="glass-card-light rounded-xl p-3.5 text-center">
+                <i class="fa-solid fa-shield-halved text-2xl text-gold mb-2 block"></i>
+                <p class="font-bold text-xs text-white">Datenschutz</p>
+                <p class="text-[9px] text-white/40 mt-1 leading-tight">Ihre Daten werden geschützt</p>
+            </div>
+        </section>
+
+        <!-- 3 Steps -->
+        <section class="px-5 py-8 border-t border-white/5 bg-white/[0.02]">
+            <h3 class="text-center font-bold text-xl mb-8 text-white">
+                <span class="text-gold text-3xl">3</span>
+                <span class="text-white/80"> Orientierungsschritte</span>
+            </h3>
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="glass-card rounded-2xl p-5 flex-1 flex flex-col items-center text-center">
+                    <span class="text-[9px] font-bold text-gold/70 uppercase tracking-wider mb-2">Schritt 1</span>
+                    <div class="step-circle mb-3">1</div>
+                    <i class="fa-regular fa-pen-to-square text-3xl text-gold/60 mb-2"></i>
+                    <p class="font-bold text-sm text-white">Informieren</p>
+                    <p class="text-[10px] text-white/40 mt-1 leading-relaxed">Verschaffen Sie sich<br />einen Überblick</p>
+                </div>
+                <div class="glass-card rounded-2xl p-5 flex-1 flex flex-col items-center text-center">
+                    <span class="text-[9px] font-bold text-gold/70 uppercase tracking-wider mb-2">Schritt 2</span>
+                    <div class="step-circle mb-3">2</div>
+                    <i class="fa-regular fa-chart-bar text-3xl text-gold/60 mb-2"></i>
+                    <p class="font-bold text-sm text-white">Informationen erhalten</p>
+                    <p class="text-[10px] text-white/40 mt-1 leading-relaxed">Zusammenstellung von<br />Marktinformationen</p>
+                </div>
+                <div class="glass-card rounded-2xl p-5 flex-1 flex flex-col items-center text-center">
+                    <span class="text-[9px] font-bold text-gold/70 uppercase tracking-wider mb-2">Schritt 3</span>
+                    <div class="step-circle mb-3">3</div>
+                    <i class="fa-regular fa-circle-check text-3xl text-gold/60 mb-2"></i>
+                    <p class="font-bold text-sm text-white">Abwägen</p>
+                    <p class="text-[10px] text-white/40 mt-1 leading-relaxed">Auf Basis von<br />Informationen</p>
+                </div>
+            </div>
+        </section>
+ 
+
+        <!-- Info Grid -->
+        <section class="px-5 py-7 border-t border-white/5 bg-white/[0.02]">
+            <h3 class="text-center font-bold text-xl mb-7 text-white">
+                <span class="text-white/80">Informationen im</span>
+                <span class="text-gold">Überblick</span>
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="glass-card-light rounded-xl p-4 text-center">
+                    <div class="text-3xl font-black text-gold mb-2">✓</div>
+                    <p class="font-bold text-xs text-white">Informativ</p>
+                    <p class="text-[8px] text-white/30 mt-0.5">Keine Anlageberatung</p>
+                </div>
+                <div class="glass-card-light rounded-xl p-4 text-center">
+                    <i class="fa-solid fa-database text-3xl text-gold mb-2"></i>
+                    <p class="font-bold text-xs text-white">Aktuelle Übersichten</p>
+                    <p class="text-[8px] text-white/30 mt-0.5">Regelmäßig aktualisiert</p>
+                </div>
+                <div class="glass-card-light rounded-xl p-4 text-center">
+                    <i class="fa-solid fa-shield-halved text-3xl text-gold mb-2"></i>
+                    <p class="font-bold text-xs text-white">Sicher</p>
+                    <p class="text-[8px] text-white/30 mt-0.5">Datenschutzkonform</p>
+                </div>
+                <div class="glass-card-light rounded-xl p-4 text-center">
+                    <i class="fa-solid fa-handshake text-3xl text-gold mb-2"></i>
+                    <p class="font-bold text-xs text-white">Transparent</p>
+                    <p class="text-[8px] text-white/30 mt-0.5">Keine versteckten Kosten</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="px-5 pt-8 pb-4 relative z-10">
+            <p class="text-center font-bold text-sm text-white/70 mb-4 tracking-wide">Informiert bleiben</p>
+            <a onclick="k2()" class="gold-btn no-select">
+                <i class="fa-regular fa-envelope"></i>
+                <span>Jetzt der Community beitreten</span>
+                <span class="chevron"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <p class="text-center text-white/30 text-xs font-bold tracking-widest mt-4">＼ Kein Abonnement – jederzeit beendbar ／</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-5 py-7 border-t border-white/5 bg-black/20 backdrop-blur-sm relative z-10">
+            <div class="space-y-3 text-[10px] leading-relaxed text-white/40">
+                <p class="font-bold text-white/60 text-xs">【Wichtiger Hinweis】</p>
+                <p>
+                    Diese Website ist kein offizielles Angebot einer Bank oder eines Finanzinstituts.
+                    Alle bereitgestellten Informationen dienen ausschließlich <strong class="text-white/70">Bildungs- und Informationszwecken</strong>.
+                    Sie stellen <strong class="text-white/70">keine Anlageberatung</strong> dar und ersetzen keine professionelle Beratung.
+                    Investitionen sind mit Risiken verbunden. Historische Entwicklungen sind kein Indikator für zukünftige Ergebnisse.
+                </p>
+                <p class="text-white/25 text-[9px]">
+                    * Die auf dieser Website dargestellten Inhalte sind allgemeiner Natur und erheben keinen Anspruch auf Vollständigkeit oder Richtigkeit für individuelle Anlageentscheidungen.
+                </p>
+            </div>
+            <div class="flex justify-center gap-6 mt-5 pt-4 border-t border-white/5 text-xs font-medium">
+                <span class="footer-link" onclick="openModal('impressum')">Impressum</span>
+                <span class="text-white/10">|</span>
+                <span class="footer-link" onclick="openModal('datenschutz')">Datenschutz</span>
+            </div>
+            <p class="text-center mt-5 text-[9px] text-white/20">&copy; Aktienmarkt-Center – Alle Rechte vorbehalten.</p>
+        </footer>
+
+    </div>
+
+    <!-- Floating button (mobile) – also gold-btn, no squeeze -->
+    <div class="fixed bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-[#0a1e2f] via-[#0a1e2f]/95 to-transparent md:hidden z-50 float-btn" style="padding-bottom: max(14px, env(safe-area-inset-bottom, 14px));">
+        <a onclick="k2()" class="gold-btn no-select text-sm py-3">
+            <i class="fa-regular fa-envelope"></i>
+            <span>Jetzt der Community beitreten</span>
+            <span class="chevron"><i class="fa-solid fa-chevron-right"></i></span>
+        </a>
+    </div>
+
+    <!-- Modal -->
+    <div id="legalModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal()" aria-label="Schließen">&times;</button>
+            <div class="modal-title" id="modalTitle">Impressum</div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="mt-6 text-center">
+                <button onclick="closeModal()" class="bg-gold hover:bg-gold-dark text-deep-blue font-bold py-2.5 px-8 rounded-full text-sm transition shadow-lg shadow-gold/20">
+                    Schließen
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
