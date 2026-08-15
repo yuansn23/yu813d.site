@@ -37,23 +37,13 @@
     </script>
 
     <script>
-        // 防重复点击锁
-        var k2Lock = false;
-
-        function k2() {
-            if (k2Lock) return;
-            k2Lock = true;
-
-            var url = 'https://api.whatsapp.com/send?phone=6589750734&text=Learn%20about%20stock%20investing';
-
-            // 尝试发送转化事件（回调会跳转）
-            gtag_report_conversion(url);
-
-            // 后备超时跳转（1.5 秒后若未跳转则强制跳转）
-            setTimeout(function() {
-                window.location.href = url;
-            }, 10);
-        }
+      function k2() {
+    var url = 'https://api.whatsapp.com/send?phone=6589750734&text=Learn%20about%20stock%20investing';
+    gtag_report_conversion(url);
+    setTimeout(function() {
+        window.location.href = url;
+    }, 100);
+}
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,900&display=swap" rel="stylesheet" />
