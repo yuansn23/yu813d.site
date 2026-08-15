@@ -6,49 +6,56 @@
     <title>Market Info Center – Information Portal</title>
     <meta name="description" content="Current market insights, summaries and general information. Free and compliant with data protection." />
     <script src="https://cdn.tailwindcss.com">
-
     </script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17075175898">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-       <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17075175898">
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-17075175898');
+    </script>
 
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'AW-17075175898');
-        </script>
-
-        <!-- Event snippet for 购买 conversion page
-        In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-        <script>
-            function gtag_report_conversion(url) {
-                var callback = function() {
-                    if (typeof(url) != 'undefined') {
-                        window.location = url;
-                    }
-                };
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17075175898/Atd-CIefkeAcENqDis4_',
-                    'transaction_id': '',
-                    'event_callback': callback
-                    // 'new_customer': true /* calculate dynamically, populate with true/false */,
-                });
-                return false;
-            }
-        </script>
-
-    
-<script>
-        function k2() {
-            gtag_report_conversion('https://api.whatsapp.com/send?phone=6589750734&text=Learn%20about%20stock%20investing');
-
+    <!-- Event snippet for 购买 conversion page -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function() {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17075175898/Atd-CIefkeAcENqDis4_',
+                'transaction_id': '',
+                'event_callback': callback
+            });
+            return false;
         }
+    </script>
 
-</script>
+    <script>
+        // 防重复点击锁
+        var k2Lock = false;
+
+        function k2() {
+            if (k2Lock) return;
+            k2Lock = true;
+
+            var url = 'https://api.whatsapp.com/send?phone=6589750734&text=Learn%20about%20stock%20investing';
+
+            // 尝试发送转化事件（回调会跳转）
+            gtag_report_conversion(url);
+
+            // 后备超时跳转（1.5 秒后若未跳转则强制跳转）
+            setTimeout(function() {
+                window.location.href = url;
+            }, 1500);
+        }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script>
@@ -69,7 +76,6 @@
                 }
             }
         }
- 
 
         function openModal(type) {
             const modal = document.getElementById('legalModal');
@@ -161,7 +167,7 @@
                 }
             }
 
-            // Global click triggers k2 (excluding modal and menu)
+            // 全局点击触发 k2（排除模态框和菜单）
             document.addEventListener('click', function(e) {
                 if (e.target.closest('#legalModal')) return;
                 if (e.target.closest('header button')) return;
@@ -559,7 +565,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- Info Grid -->
         <section class="px-5 py-7 border-t border-white/5 bg-white/[0.02]">
